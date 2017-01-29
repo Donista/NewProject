@@ -71,4 +71,13 @@
             android:id="@+id/grantsText" />
     </ScrollView>
 
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/publishButton"
+        android:layout_marginStart="199dp"
+        android:layout_marginBottom="71dp"
+        android:id="@+id/seekBar3" />
+
 </RelativeLayout>
