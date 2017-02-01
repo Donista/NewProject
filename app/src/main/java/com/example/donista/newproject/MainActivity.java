@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView grantTagsEdit;
     private ListView grantListView;
     private CheckBox checkBox;
-    private GrantsListAdapter grantsListAdaptor;
+    private GrantsListAdapter grantsListAdapter;
 
 
     @Override
@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         grantDB=(FirebaseDatabase.getInstance());
         grantsReference=grantDB.getReference().child("grants");
-        //initialize arrayList
-
 
         //intialitize interface
         grantName=(EditText)findViewById(R.id.grantName);

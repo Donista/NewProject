@@ -40,8 +40,8 @@ public class GrantsListAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.one_grant_in_list_layout, null);
             holder = new ViewHolder();
-            holder.grantName = (TextView) convertView.findViewById(R.id.grantName);
-            holder.grantTagsEdit=(EditText) convertView.findViewById(R.id.grantTagsEdit);
+            holder.grantTitle = (TextView) convertView.findViewById(R.id.grantTitle);
+            holder.grantTags=(TextView) convertView.findViewById(R.id.grantTags);
             holder.grantDeadlineEdit = (TextView) convertView.findViewById(R.id.grantDeadlineEdit);
             holder.checkBox=(CheckBox)convertView.findViewById(R.id.checkBox);
             convertView.setTag(holder);
@@ -49,10 +49,9 @@ public class GrantsListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.grantName.setText(grantListView.get(position).getGrantName());
-        holder.grantTagsEdit.setText(grantListView.get(position).getGrantTagsEdit());
+        holder.grantTitle.setText(grantListView.get(position).getGrantTitle());
+        holder.grantTags.setText(grantListView.get(position).getGrantTags());
         holder.grantDeadlineEdit.setText(grantListView.get(position).getGrantDeadline());
-        holder.checkBox.setText(grantListView.get(position).getcheckBox());
         return convertView;
     }
 
@@ -62,9 +61,10 @@ public class GrantsListAdapter extends BaseAdapter {
     }
 
     static class ViewHolder {
-        TextView grantName;
-        TextView grantTagsEdit;
+        TextView grantTitle;
+        TextView grantTags;
         TextView grantDeadlineEdit;
         CheckBox checkBox;
+
     }
 }
