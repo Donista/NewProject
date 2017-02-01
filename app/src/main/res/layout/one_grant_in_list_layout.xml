@@ -6,28 +6,32 @@
     android:padding="5dip" >
 
     <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="27dp"
         android:id="@+id/grantTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:typeface="sans" />
+        android:layout_alignParentEnd="true" />
 
     <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="58dp"
         android:id="@+id/grantTags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/grantTitle"
-        android:layout_marginTop="5dip"
-        android:textColor="#343434"
-        android:textSize="12sp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:id="@+id/grantDeadlineEdit"
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/grantTags"
-        android:layout_alignBottom="@+id/grantTags"
-        android:layout_alignParentRight="true"
-        android:textColor="#FF0000"
-        android:textSize="12sp" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="109dp"
+        android:id="@+id/grantDeadlineEdit"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
