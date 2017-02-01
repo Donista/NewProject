@@ -48,7 +48,7 @@ public class GrantActivity extends AppCompatActivity {
                 Grant grant=dataSnapshot.getValue(Grant.class);
                 singleGrantView.append(grant.getGrantName()+"\n" +
                                         grant.getGrantDescription()+"\n" +
-                                        grant.getTags()+"\n"+
+                                        grant.getGrantTagsEdit()+"\n"+
                                         grant.getGrantDeadline());
             }
 

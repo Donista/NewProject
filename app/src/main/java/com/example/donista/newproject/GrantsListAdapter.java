@@ -12,22 +12,22 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class GrantsListAdapter extends BaseAdapter {
-    private ArrayList<Grant> grantsListData;
+    private ArrayList<Grant> grantListView;
     private LayoutInflater layoutInflater;
 
-    public GrantsListAdapter(Context aContext, ArrayList<Grant> listData) {
-        this.grantsListData = listData;
+    public GrantsListAdapter(Context aContext) {
+        this.grantListView = new ArrayList<>();
         layoutInflater = LayoutInflater.from(aContext);
     }
 
     @Override
     public int getCount() {
-        return grantsListData.size();
+        return grantListView.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return grantsListData.get(position);
+        return grantListView.get(position);
     }
 
     @Override
@@ -49,15 +49,15 @@ public class GrantsListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.grantName.setText(grantsListData.get(position).getGrantName());
-        holder.grantTagsEdit.setText(grantsListData.get(position).getTags());
-        holder.grantDeadlineEdit.setText(grantsListData.get(position).getGrantDeadline());
-        holder.checkBox.setText(grantsListData.get(position).getcheckBox());
+        holder.grantName.setText(grantListView.get(position).getGrantName());
+        holder.grantTagsEdit.setText(grantListView.get(position).getGrantTagsEdit());
+        holder.grantDeadlineEdit.setText(grantListView.get(position).getGrantDeadline());
+        holder.checkBox.setText(grantListView.get(position).getcheckBox());
         return convertView;
     }
 
     public void add(Grant grant) {
-        grantsListData.add(grant);
+        grantListView.add(grant);
         notifyDataSetChanged();
     }
 

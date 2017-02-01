@@ -33,9 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView grantTagsEdit;
     private ListView grantListView;
     private CheckBox checkBox;
-    GrantsListAdapter grantsListAdaptor;
-    ArrayList<Grant> items;
-
+    private GrantsListAdapter grantsListAdaptor;
 
 
     @Override
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         grantDB=(FirebaseDatabase.getInstance());
         grantsReference=grantDB.getReference().child("grants");
         //initialize arrayList
-        items=new ArrayList<>();
+
 
         //intialitize interface
         grantName=(EditText)findViewById(R.id.grantName);
@@ -57,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         grantDeadlineEdit=(EditText)findViewById(R.id.grantDeadlineEdit);
         grantListView=(ListView)findViewById(R.id.grantListView);
         checkBox=(CheckBox)findViewById(R.id.checkBox);
-        grantsListAdaptor = new GrantsListAdapter(MainActivity.this, items);
-        grantListView.setAdapter(grantsListAdaptor);
+        grantsListAdapter = new GrantsListAdapter(MainActivity.this);
+        grantListView.setAdapter(grantsListAdapter);
 
         publishButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 Grant grant=new Grant(grantName.getText().toString(),grantDescription.getText().toString(),grantDeadlineEdit.getText().toString(),
                         grantTagsEdit.getText().toString(),checkBox.getText().toString());
 
-                grant.setTags(grantTagsEdit.getText().toString());
+                grant.setGrantTagsEdit(grantTagsEdit.getText().toString());
                 grant.setGrantDeadline(grantDeadlineEdit.getText().toString());
 
                 grantsReference.push().setValue(grant);
@@ -80,9 +78,9 @@ public class MainActivity extends AppCompatActivity {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Grant grant=dataSnapshot.getValue(Grant.class);
                 grant.setId(dataSnapshot.getKey());
+                grantsListAdapter.add(grant);
 
 
-                grantsListAdaptor.add(grant);
                 /*grantsText.append(grant.getGrantName()+"\n");
                 grantsText.append(grant.getGrantDescription()+"\n\n\n");*/
 
@@ -112,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         grantListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Grant grant=(Grant) grantsListAdaptor.getItem(position);
+                Grant grant=(Grant) grantsListAdapter.getItem(position);
                 Intent intent=new Intent(MainActivity.this, GrantActivity.class);
                 intent.putExtra("grantId",grant.getId());
                 startActivity(intent);

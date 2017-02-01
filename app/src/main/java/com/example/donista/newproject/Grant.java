@@ -9,7 +9,7 @@ public class Grant {
     private String grantDeadlineEdit;
     private String grantTagsEdit;
     private String checkBox;
-    private  String id;
+    private String id;
 
 
 
@@ -25,17 +25,13 @@ public class Grant {
 
     public String getGrantName() {return grantName;}
 
-    public void setGrantName(String grantName) {
-        this.grantName = grantName;
-    }
+    public void setGrantName(String grantName) { this.grantName = grantName;  }
 
     public String getGrantDescription() {
         return grantDescription;
     }
 
-    public void setGrantDescription(String grantDescription) {
-        this.grantDescription = grantDescription;
-    }
+    public void setGrantDescription (String grantDescription) {this.grantDescription = grantDescription;}
 
     public String getGrantDeadline() {
         return grantDeadlineEdit;
@@ -46,20 +42,14 @@ public class Grant {
     }
 
 
-
-
-    public String getTags() {
-        return tags;
-    }
+    /*public String getTags() {return tags;}
 
     public void setTags(String tags) {
         this.tags = tags;
     }
+    private String tags;*/
 
-    private String tags;
-
-    public Grant() {
-    }
+    public Grant() {}
 
     public String getcheckBox() {
         return checkBox;
@@ -73,8 +63,6 @@ public class Grant {
         this.id = id;
     }
 
-
-
     public String getGrantTagsEdit() {
         return grantTagsEdit;
     }
@@ -82,4 +70,5 @@ public class Grant {
     public void setGrantTagsEdit(String grantTagsEdit) {
         this.grantTagsEdit = grantTagsEdit;
     }
+
 }
