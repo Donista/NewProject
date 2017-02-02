@@ -13,24 +13,23 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ShowAll extends AppCompatActivity {
-
+public class Favorites extends AppCompatActivity {
     //firebase variables
     private FirebaseDatabase grantDB;
     private DatabaseReference grantsReference;
 
 
-    private ListView listShowAll;
+    private ListView favoriteListView;
     private GrantsListAdapter grantsListAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_all);
+        setContentView(R.layout.activity_favorites);
 
-        listShowAll=(ListView)findViewById(R.id.listShowAll);
-        grantsListAdapter=new GrantsListAdapter(ShowAll.this);
+        favoriteListView=(ListView)findViewById(R.id.favoriteListView);
+        grantsListAdapter=new GrantsListAdapter(Favorites.this);
 
 
         //initiaiza Firebase database and reference
@@ -38,7 +37,7 @@ public class ShowAll extends AppCompatActivity {
         grantDB=(FirebaseDatabase.getInstance());
         grantsReference=grantDB.getReference().child("grants");
 
-        listShowAll.setAdapter(grantsListAdapter);
+        favoriteListView.setAdapter(grantsListAdapter);
 
         //monitoring
         grantsReference.addChildEventListener(new ChildEventListener() {
@@ -72,11 +71,11 @@ public class ShowAll extends AppCompatActivity {
         });
 
 
-        listShowAll.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        favoriteListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Grant grant=(Grant) grantsListAdapter.getItem(position);
-                Intent intent=new Intent(ShowAll.this, GrantActivity.class);
+                Intent intent=new Intent(Favorites.this, GrantActivity.class);
                 intent.putExtra("grantId",grant.getId());
                 startActivity(intent);
 

@@ -17,6 +17,8 @@ public class HomePageActivity extends AppCompatActivity {
     private Button showButton;
     private ListView listView;
     private GrantsListAdapter grantsListAdapter;
+    private Button enterButton;
+
 
 
     @Override
@@ -28,6 +30,7 @@ public class HomePageActivity extends AppCompatActivity {
         searchText = (EditText)findViewById(R.id.searchText);
         showButton = (Button)findViewById(R.id.showButton);
         listView = (ListView)findViewById(R.id.listView);
+        enterButton = (Button)findViewById(R.id.enterButton);
         grantsListAdapter = new GrantsListAdapter(HomePageActivity.this);
         listView.setAdapter(grantsListAdapter);
 
@@ -39,6 +42,24 @@ public class HomePageActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
         });
-    }
 
+        favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(HomePageActivity.this, Favorites.class);
+                startActivity(intent);
+            }
+        });
+
+        enterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Grant grant=(Grant) grantsListAdapter.getItem(position);
+                Intent intent=new Intent(HomePageActivity.this, GrantActivity.class);
+                intent.putExtra("searchText",grant.getId());
+                searchText.setText(grantsListAdapter.get(position).getSearchText);
+                startActivity(intent);
+            }
+        });
+    }
 }
