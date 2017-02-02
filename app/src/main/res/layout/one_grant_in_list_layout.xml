@@ -20,18 +20,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="58dp"
-        android:id="@+id/grantTags"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="109dp"
+        android:id="@+id/grantDeadlineEdit"
         android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="109dp"
-        android:id="@+id/grantDeadlineEdit"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginTop="23dp"
+        android:id="@+id/grantTags"
+        android:layout_below="@+id/grantTitle"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

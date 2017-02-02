@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView grantListView;
     private CheckBox checkBox;
     private GrantsListAdapter grantsListAdapter;
+    private Button transButton;
 
 
     @Override
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         checkBox=(CheckBox)findViewById(R.id.checkBox);
         grantsListAdapter = new GrantsListAdapter(MainActivity.this);
         grantListView.setAdapter(grantsListAdapter);
+        transButton=(Button)findViewById(R.id.transButton);
+
 
         publishButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +114,14 @@ public class MainActivity extends AppCompatActivity {
                 Grant grant=(Grant) grantsListAdapter.getItem(position);
                 Intent intent=new Intent(MainActivity.this, GrantActivity.class);
                 intent.putExtra("grantId",grant.getId());
+                startActivity(intent);
+            }
+        });
+
+        transButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HomePageActivity.class);
                 startActivity(intent);
             }
         });
