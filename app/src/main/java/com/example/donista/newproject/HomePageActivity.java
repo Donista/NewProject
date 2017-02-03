@@ -53,11 +53,9 @@ public class HomePageActivity extends AppCompatActivity {
 
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Grant grant=(Grant) grantsListAdapter.getItem(position);
+            public void onClick(View view) {
                 Intent intent=new Intent(HomePageActivity.this, GrantActivity.class);
-                intent.putExtra("searchText",grant.getId());
-                searchText.setText(grantsListAdapter.get(position).getSearchText);
+                intent.putExtra("searchTextKey", searchText.getText().toString());
                 startActivity(intent);
             }
         });

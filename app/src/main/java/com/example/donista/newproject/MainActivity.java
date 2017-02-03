@@ -69,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 grant.setGrantDeadline(grantDeadlineEdit.getText().toString());
 
                 grantsReference.push().setValue(grant);
-
             }
 
         });
