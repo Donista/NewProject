@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -80,6 +81,15 @@ public class ShowAll extends AppCompatActivity {
                 intent.putExtra("grantId",grant.getId());
                 startActivity(intent);
 
+            }
+        });
+        listShowAll.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Toast.makeText(getApplicationContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+
+
+                return false;
             }
         });
     }

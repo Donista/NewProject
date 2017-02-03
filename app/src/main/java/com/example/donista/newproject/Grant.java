@@ -8,21 +8,24 @@ public class Grant {
     private String grantDescription;
     private String grantDeadlineEdit;
     private String grantTagsEdit;
-    private String checkBox;
+    private String saveButton;
     private String id;
     private String grantTitle;
     private String grantTags;
+    private String linkTextView;
 
 
 
 
 
-    public Grant(String grantName, String grantDescription, String grantDeadlineEdit,String grantTagsEdit,String checkBox ) {
+
+    public Grant(String grantName, String grantDescription, String grantDeadlineEdit, String grantTagsEdit) {
         this.grantName = grantName;
         this.grantDescription = grantDescription;
         this.grantDeadlineEdit = grantDeadlineEdit;
         this.grantTagsEdit=grantTagsEdit;
-        this.checkBox=checkBox;
+        this.saveButton = saveButton;
+        this.linkTextView = linkTextView;
     }
     public Grant() {}
 
@@ -54,10 +57,6 @@ public class Grant {
 
 
 
-    public String getcheckBox() {
-        return checkBox;
-    }
-
     public String getId() {
         return id;
     }
@@ -83,4 +82,11 @@ public class Grant {
         return grantTags;
     }
 
+    public String getSaveButton() {
+        return saveButton;
+    }
+
+    public String getLinkView() {
+        return linkTextView;
+    }
 }

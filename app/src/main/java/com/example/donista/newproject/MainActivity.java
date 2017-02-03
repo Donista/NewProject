@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText grantDeadlineEdit;
     private TextView grantTagsEdit;
     private ListView grantListView;
-    private CheckBox checkBox;
     private GrantsListAdapter grantsListAdapter;
     private Button transButton;
 
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         grantTagsEdit=(EditText) findViewById(R.id.grantTagsEdit);
         grantDeadlineEdit=(EditText)findViewById(R.id.grantDeadlineEdit);
         grantListView=(ListView)findViewById(R.id.grantListView);
-        checkBox=(CheckBox)findViewById(R.id.checkBox);
         grantsListAdapter = new GrantsListAdapter(MainActivity.this);
         grantListView.setAdapter(grantsListAdapter);
         transButton=(Button)findViewById(R.id.transButton);
@@ -63,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Grant grant=new Grant(grantName.getText().toString(),grantDescription.getText().toString(),grantDeadlineEdit.getText().toString(),
-                        grantTagsEdit.getText().toString(),checkBox.getText().toString());
+                        grantTagsEdit.getText().toString());
 
                 grant.setGrantTagsEdit(grantTagsEdit.getText().toString());
                 grant.setGrantDeadline(grantDeadlineEdit.getText().toString());

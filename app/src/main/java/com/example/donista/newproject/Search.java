@@ -33,6 +33,9 @@ public class Search extends AppCompatActivity {
         searchTextView = (TextView) findViewById(R.id. searchTextView);
         grantsListAdapter=new GrantsListAdapter(Search.this);
 
+        Intent intent = getIntent();
+        intent.getExtras().getString("searchTextKey");
+
         //initiaiza Firebase database and reference
 
         grantDB=(FirebaseDatabase.getInstance());

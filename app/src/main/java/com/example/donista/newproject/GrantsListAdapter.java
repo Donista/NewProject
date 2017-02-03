@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 public class GrantsListAdapter extends BaseAdapter {
     private ArrayList<Grant> grantListView;
     private LayoutInflater layoutInflater;
+
 
     public GrantsListAdapter(Context aContext) {
         this.grantListView = new ArrayList<>();
@@ -43,14 +45,13 @@ public class GrantsListAdapter extends BaseAdapter {
             holder.grantTitle = (TextView) convertView.findViewById(R.id.grantTitle);
             holder.grantTags=(TextView) convertView.findViewById(R.id.grantTags);
             holder.grantDeadlineEdit = (TextView) convertView.findViewById(R.id.grantDeadlineEdit);
-            holder.checkBox=(CheckBox)convertView.findViewById(R.id.checkBox);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.grantTitle.setText(grantListView.get(position).getGrantTitle());
-        holder.grantTags.setText(grantListView.get(position).getGrantTags());
+        holder.grantTitle.setText(grantListView.get(position).getGrantName());
+        holder.grantTags.setText(grantListView.get(position).getGrantTagsEdit());
         holder.grantDeadlineEdit.setText(grantListView.get(position).getGrantDeadline());
         return convertView;
     }
@@ -64,7 +65,6 @@ public class GrantsListAdapter extends BaseAdapter {
         TextView grantTitle;
         TextView grantTags;
         TextView grantDeadlineEdit;
-        CheckBox checkBox;
 
     }
 }

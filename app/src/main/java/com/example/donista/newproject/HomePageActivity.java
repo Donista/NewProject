@@ -1,6 +1,7 @@
 package com.example.donista.newproject;
 
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,8 @@ public class HomePageActivity extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,8 @@ public class HomePageActivity extends AppCompatActivity {
         enterButton = (Button)findViewById(R.id.enterButton);
         grantsListAdapter = new GrantsListAdapter(HomePageActivity.this);
         listView.setAdapter(grantsListAdapter);
+
+
 
 
         showButton.setOnClickListener(new View.OnClickListener() {
@@ -54,7 +59,7 @@ public class HomePageActivity extends AppCompatActivity {
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(HomePageActivity.this, GrantActivity.class);
+                Intent intent=new Intent(HomePageActivity.this, Search.class);
                 intent.putExtra("searchTextKey", searchText.getText().toString());
                 startActivity(intent);
             }

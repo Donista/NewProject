@@ -3,16 +3,12 @@ package com.example.donista.newproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class GrantActivity extends AppCompatActivity {
     //firebase variables
@@ -21,7 +17,15 @@ public class GrantActivity extends AppCompatActivity {
     private String id;
 
 
-    private TextView singleGrantView;
+
+    private TextView nameTextView;
+    private TextView descriptionTextView;
+    private TextView deadlineTextView;
+    private TextView tagsTextView;
+    private TextView linkTextView;
+    private Button saveButton;
+
+
 
 
 
@@ -40,23 +44,19 @@ public class GrantActivity extends AppCompatActivity {
 
         //initialize interface
 
-        singleGrantView=(TextView)findViewById(R.id.singleGrantView);
+        nameTextView = (TextView) findViewById(R.id.nameTextView);
+        descriptionTextView = (TextView)findViewById(R.id.descriptionTextView);
+        deadlineTextView = (TextView)findViewById(R.id.deadlineTextView);
+        tagsTextView = (TextView)findViewById(R.id.tagsTextView);
+        linkTextView = (TextView)findViewById(R.id.linkTextView);
+        saveButton = (Button)findViewById(R.id.saveButton);
 
-        grantsReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Grant grant=dataSnapshot.getValue(Grant.class);
-                singleGrantView.append(grant.getGrantName()+"\n" +
-                                        grant.getGrantDescription()+"\n" +
-                                        grant.getGrantTagsEdit()+"\n"+
-                                        grant.getGrantDeadline());
-            }
+        nameTextView.setText(nameTextView.getText().toString());
+        descriptionTextView.setText(descriptionTextView.getText().toString());
+        deadlineTextView.setText(deadlineTextView.getText().toString());
+        tagsTextView.setText(tagsTextView.getText().toString());
+        linkTextView.setText(linkTextView.getText().toString());
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
     };
 
     }
