@@ -40,15 +40,6 @@
         android:layout_below="@+id/publishButton"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:text="Publish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/publishButton"
-        android:layout_marginTop="74dp"
-        android:layout_below="@+id/grantDeadlineEdit"
-        android:layout_alignParentStart="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,6 +68,25 @@
         android:id="@+id/transButton"
         android:layout_below="@+id/grantTagsEdit"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Publish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/publishButton"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/transButton"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignBottom="@+id/transButton"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
