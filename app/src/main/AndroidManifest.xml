@@ -18,7 +18,6 @@
         <activity android:name=".GrantActivity" />
         <activity android:name=".HomePageActivity" />
         <activity android:name=".ShowAll" />
-        <activity android:name=".Favorites" />
         <activity android:name=".Search"></activity>
     </application>
 

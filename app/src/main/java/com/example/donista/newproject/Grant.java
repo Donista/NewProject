@@ -8,61 +8,40 @@ public class Grant {
     private String grantDescription;
     private String grantDeadlineEdit;
     private String grantTagsEdit;
-    private String saveButton;
     private String id;
-    private String grantTitle;
-    private String grantTags;
     private String linkTextView;
 
-
-
-
-
-
-    public Grant(String grantName, String grantDescription, String grantDeadlineEdit, String grantTagsEdit) {
+    public Grant(String grantName, String grantDescription, String grantDeadlineEdit, String grantTagsEdit, String linkTextView) {
         this.grantName = grantName;
         this.grantDescription = grantDescription;
         this.grantDeadlineEdit = grantDeadlineEdit;
         this.grantTagsEdit=grantTagsEdit;
-        this.saveButton = saveButton;
         this.linkTextView = linkTextView;
     }
     public Grant() {}
 
-    public String getGrantName() {return grantName;}
+    public String getGrantName() {
+        return grantName;
+    }
 
-    public void setGrantName(String grantName) { this.grantName = grantName;  }
+    public void setGrantName(String grantName) {
+        this.grantName = grantName;
+    }
 
     public String getGrantDescription() {
         return grantDescription;
     }
 
-    public void setGrantDescription (String grantDescription) {this.grantDescription = grantDescription;}
+    public void setGrantDescription(String grantDescription) {
+        this.grantDescription = grantDescription;
+    }
 
-    public String getGrantDeadline() {
+    public String getGrantDeadlineEdit() {
         return grantDeadlineEdit;
     }
 
-    public void setGrantDeadline(String grantDeadline) {
-        this.grantDeadlineEdit = grantDeadline;
-    }
-
-
-    /*public String getTags() {return tags;}
-
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
-    private String tags;*/
-
-
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setGrantDeadlineEdit(String grantDeadlineEdit) {
+        this.grantDeadlineEdit = grantDeadlineEdit;
     }
 
     public String getGrantTagsEdit() {
@@ -73,20 +52,21 @@ public class Grant {
         this.grantTagsEdit = grantTagsEdit;
     }
 
-
-    public String getGrantTitle() {
-        return grantTitle;
+    public String getId() {
+        return id;
     }
 
-    public String getGrantTags() {
-        return grantTags;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getSaveButton() {
-        return saveButton;
-    }
-
-    public String getLinkView() {
+    public String getLinkTextView() {
         return linkTextView;
     }
+
+    public void setLinkTextView(String linkTextView) {
+        this.linkTextView = linkTextView;
+    }
+
+
 }

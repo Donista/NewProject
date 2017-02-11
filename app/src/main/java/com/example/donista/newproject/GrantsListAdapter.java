@@ -5,9 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,8 +39,8 @@ public class GrantsListAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.one_grant_in_list_layout, null);
             holder = new ViewHolder();
-            holder.grantTitle = (TextView) convertView.findViewById(R.id.grantTitle);
-            holder.grantTags=(TextView) convertView.findViewById(R.id.grantTags);
+            holder.grantTitle = (TextView) convertView.findViewById(R.id.grantName);
+            holder.grantTags=(TextView) convertView.findViewById(R.id.grantTagsEdit);
             holder.grantDeadlineEdit = (TextView) convertView.findViewById(R.id.grantDeadlineEdit);
             convertView.setTag(holder);
         } else {
@@ -52,7 +49,7 @@ public class GrantsListAdapter extends BaseAdapter {
 
         holder.grantTitle.setText(grantListView.get(position).getGrantName());
         holder.grantTags.setText(grantListView.get(position).getGrantTagsEdit());
-        holder.grantDeadlineEdit.setText(grantListView.get(position).getGrantDeadline());
+        holder.grantDeadlineEdit.setText(grantListView.get(position).getGrantDeadlineEdit());
         return convertView;
     }
 

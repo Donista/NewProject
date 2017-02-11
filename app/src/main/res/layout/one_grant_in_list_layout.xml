@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:id="@+id/grantTitle"
+        android:id="@+id/grantName"
         android:layout_below="@+id/grantDeadlineEdit" />
 
     <TextView
@@ -18,8 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
-        android:id="@+id/grantTags"
-        android:layout_below="@+id/grantTitle"
+        android:id="@+id/grantTagsEdit"
+        android:layout_below="@+id/grantName"
         android:layout_alignParentStart="true" />
 
     <TextView

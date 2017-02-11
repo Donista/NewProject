@@ -3,12 +3,15 @@ package com.example.donista.newproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 public class GrantActivity extends AppCompatActivity {
     //firebase variables
@@ -18,15 +21,11 @@ public class GrantActivity extends AppCompatActivity {
 
 
 
-    private TextView nameTextView;
-    private TextView descriptionTextView;
-    private TextView deadlineTextView;
-    private TextView tagsTextView;
+    private TextView grantName;
+    private TextView grantDescription;
+    private TextView grantDeadlineEdit;
+    private TextView grantTagsEdit;
     private TextView linkTextView;
-    private Button saveButton;
-
-
-
 
 
     @Override
@@ -42,20 +41,33 @@ public class GrantActivity extends AppCompatActivity {
         grantDB=(FirebaseDatabase.getInstance());
         grantsReference=grantDB.getReference().child("grants").child(id);
 
+        grantName = (TextView)findViewById(R.id.grantName);
+        grantDescription = (TextView)findViewById(R.id.grantDescription);
+        grantDeadlineEdit = (TextView)findViewById(R.id.grantDeadlineEdit);
+        grantTagsEdit = (TextView)findViewById(R.id.grantTagsEdit);
+        linkTextView = (TextView)findViewById(R.id.linkTextView);
+
         //initialize interface
 
-        nameTextView = (TextView) findViewById(R.id.nameTextView);
-        descriptionTextView = (TextView)findViewById(R.id.descriptionTextView);
-        deadlineTextView = (TextView)findViewById(R.id.deadlineTextView);
-        tagsTextView = (TextView)findViewById(R.id.tagsTextView);
-        linkTextView = (TextView)findViewById(R.id.linkTextView);
-        saveButton = (Button)findViewById(R.id.saveButton);
+        grantsReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
 
-        nameTextView.setText(nameTextView.getText().toString());
-        descriptionTextView.setText(descriptionTextView.getText().toString());
-        deadlineTextView.setText(deadlineTextView.getText().toString());
-        tagsTextView.setText(tagsTextView.getText().toString());
-        linkTextView.setText(linkTextView.getText().toString());
+                Grant grant = dataSnapshot.getValue(Grant.class);
+
+                grantName.setText(grant.getGrantName().toString());
+                grantDescription.setText(grant.getGrantDescription().toString());
+                grantDeadlineEdit.setText(grant.getGrantDeadlineEdit().toString());
+                grantTagsEdit.setText(grant.getGrantTagsEdit().toString());
+                linkTextView.setText(grant.getLinkTextView().toString());
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
     };
 

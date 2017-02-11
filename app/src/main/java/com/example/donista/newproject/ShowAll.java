@@ -88,7 +88,6 @@ public class ShowAll extends AppCompatActivity {
             public boolean onLongClick(View view) {
                 Toast.makeText(getApplicationContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
 
-
                 return false;
             }
         });

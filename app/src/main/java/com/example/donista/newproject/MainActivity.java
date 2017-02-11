@@ -5,20 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     //firebase variables
@@ -30,10 +25,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText grantDescription;
     private Button publishButton;
     private EditText grantDeadlineEdit;
-    private TextView grantTagsEdit;
+    private EditText grantTagsEdit;
     private ListView grantListView;
     private GrantsListAdapter grantsListAdapter;
     private Button transButton;
+    private EditText linkEditText;
+
 
 
     @Override
@@ -55,16 +52,18 @@ public class MainActivity extends AppCompatActivity {
         grantsListAdapter = new GrantsListAdapter(MainActivity.this);
         grantListView.setAdapter(grantsListAdapter);
         transButton=(Button)findViewById(R.id.transButton);
+        linkEditText = (EditText)findViewById(R.id.linkEditText);
+
 
 
         publishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Grant grant=new Grant(grantName.getText().toString(),grantDescription.getText().toString(),grantDeadlineEdit.getText().toString(),
-                        grantTagsEdit.getText().toString());
-
-                grant.setGrantTagsEdit(grantTagsEdit.getText().toString());
-                grant.setGrantDeadline(grantDeadlineEdit.getText().toString());
+                Grant grant=new Grant(grantName.getText().toString(),
+                                      grantDescription.getText().toString(),
+                                      grantDeadlineEdit.getText().toString(),
+                                      grantTagsEdit.getText().toString(),
+                                      linkEditText.getText().toString());
 
                 grantsReference.push().setValue(grant);
             }
